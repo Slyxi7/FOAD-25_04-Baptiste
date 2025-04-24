@@ -1,0 +1,13 @@
+CREATE TABLE Utilisateur (
+  id_utilisateur INT PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Cours (
+  id_cours INT PRIMARY KEY AUTO_INCREMENT,
+  titre VARCHAR(255) NOT NULL,
+  description TEXT,
+  id_utilisateur INT NOT NULL,
+  FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+);

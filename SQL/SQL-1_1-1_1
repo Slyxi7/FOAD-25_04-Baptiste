@@ -1,0 +1,13 @@
+CREATE TABLE Utilisateur (
+  id_utilisateur INT PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Profil (
+  id_profil INT PRIMARY KEY AUTO_INCREMENT,
+  bio VARCHAR(255),
+  photo VARCHAR(255),
+  id_utilisateur INT UNIQUE,
+  FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+);
