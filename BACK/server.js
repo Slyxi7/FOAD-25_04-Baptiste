@@ -1,31 +1,39 @@
 const express = require("express");
-// on importe express
-
 require("dotenv").config();
-// on importe le fichier .env
 
 const app = express();
-// on declare l'application express
 
-const port = 3000;
-// on declare le port
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-// on declare le middleware pour parser le json
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-// on declare la route racine
+require("./Models/Associations");
 
-// const stagiaireRoute = require("./Routes/StagiaireRoute");
+const CoursRoute = require('./Routes/CoursRoute');
+app.use('/cours', CoursRoute);
 
-// app.use("/stagiaires", stagiaireRoute);
+const EtudiantRoute = require('./Routes/EtudiantRoute');
+app.use('/etudiant', EtudiantRoute);
+
+const InscriptionRoute = require('./Routes/InscriptionRoute');
+app.use('/inscription', InscriptionRoute);
+
+const ProfilRoute = require('./Routes/ProfilRoute');
+app.use('/profil', ProfilRoute);
+
+const UtilisateurRoute = require('./Routes/UtilisateurRoute');
+app.use('/utilisateur', UtilisateurRoute);
+
 
 app.use((req, res) => {
-  res.status(404).json({ message: "Route non trouvé" });
+  res.status(404).json({ message: "Route non trouvée" });
 });
+
 app.listen(port, () => {
-  console.log(`Votre serveur est lancé sur
-http://127.0.0.1:${port}`);
+  console.log(`Votre serveur est lancé sur http://127.0.0.1:${port}`);
 });
+
+//L'IP 172.21.173.79 est l'adresse locale de ta machine WSL, et donc accessible depuis ton navigateur Windows.
