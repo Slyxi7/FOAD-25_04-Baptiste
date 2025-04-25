@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.1deb3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 24 avr. 2025 à 16:22
--- Version du serveur : 8.0.41-0ubuntu0.22.04.1
--- Version de PHP : 8.1.2-1ubuntu2.21
+-- Généré le : ven. 25 avr. 2025 à 11:55
+-- Version du serveur : 8.0.41-0ubuntu0.24.04.1
+-- Version de PHP : 8.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,6 +46,15 @@ CREATE TABLE `Etudiant` (
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `Etudiant`
+--
+
+INSERT INTO `Etudiant` (`id_etudiant`, `nom`, `email`) VALUES
+(1, 'Messi', 'me.ssi@gmail.com'),
+(2, 'Pessi', 'pe.ssi@gmail.com'),
+(3, 'Menon', 'me.non@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +64,7 @@ CREATE TABLE `Etudiant` (
 CREATE TABLE `Inscription` (
   `id_etudiant` int NOT NULL,
   `id_cours` int NOT NULL,
-  `date_inscription` date NOT NULL
+  `date_inscription` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -71,6 +80,14 @@ CREATE TABLE `Profil` (
   `id_utilisateur` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `Profil`
+--
+
+INSERT INTO `Profil` (`id_profil`, `bio`, `photo`, `id_utilisateur`) VALUES
+(1, 'Je suis joueur de foot', 'azgdatgdyadagda', 2),
+(3, 'Je men fous ', 'azgda', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -82,6 +99,15 @@ CREATE TABLE `Utilisateur` (
   `nom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `Utilisateur`
+--
+
+INSERT INTO `Utilisateur` (`id_utilisateur`, `nom`, `email`) VALUES
+(1, 'Akpaspom', 'ak.pom@gmail.com'),
+(2, 'Akpom', 'ak.pom@gmail.com'),
+(3, 'Akpomme', 'ak.pomme@gmail.com');
 
 --
 -- Index pour les tables déchargées
@@ -128,25 +154,25 @@ ALTER TABLE `Utilisateur`
 -- AUTO_INCREMENT pour la table `Cours`
 --
 ALTER TABLE `Cours`
-  MODIFY `id_cours` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cours` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Etudiant`
 --
 ALTER TABLE `Etudiant`
-  MODIFY `id_etudiant` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_etudiant` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `Profil`
 --
 ALTER TABLE `Profil`
-  MODIFY `id_profil` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_profil` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  MODIFY `id_utilisateur` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
