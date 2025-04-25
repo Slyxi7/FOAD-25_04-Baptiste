@@ -12,20 +12,17 @@ app.get("/", (req, res) => {
 });
 require("./Models/Associations");
 
-const CoursRoute = require('./Routes/CoursRoute');
-app.use('/cours', CoursRoute);
+const UtilisateurRoute = require('./Routes/UtilisateurRoutes');
+app.use('/utilisateur', UtilisateurRoute);
 
-const EtudiantRoute = require('./Routes/EtudiantRoute');
+const EtudiantRoute = require('./Routes/EtudiantRoutes');
 app.use('/etudiant', EtudiantRoute);
 
-const InscriptionRoute = require('./Routes/InscriptionRoute');
-app.use('/inscription', InscriptionRoute);
-
-const ProfilRoute = require('./Routes/ProfilRoute');
+const ProfilRoute = require('./Routes/ProfilRoutes');
 app.use('/profil', ProfilRoute);
 
-const UtilisateurRoute = require('./Routes/UtilisateurRoute');
-app.use('/utilisateur', UtilisateurRoute);
+const CoursRoute = require('./Routes/CoursRoutes');
+app.use('/cours', CoursRoute);
 
 
 app.use((req, res) => {
